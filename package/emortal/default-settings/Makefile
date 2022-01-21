@@ -26,7 +26,7 @@ define Package/default-settings
   DEPENDS:=+luci-lib-base
 endef
 
-define Package/default-settings-en
+define Package/default-settings-lang
   $(Package/default-settings)
   TITLE+= (Optimize for users)
   DEPENDS:=+default-settings +@LUCI_LANG_en
@@ -41,4 +41,4 @@ define Package/default-settings/install
 endef
 
 $(eval $(call BuildPackage,default-settings))
-$(eval $(call BuildPackage,default-settings-en))
+$(eval $(call BuildPackage,default-settings-lang))
