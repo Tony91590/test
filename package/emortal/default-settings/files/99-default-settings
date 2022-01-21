@@ -19,11 +19,6 @@ rm -f /www/luci-static/resources/view/status/include/80_upnp.js
 
 ln -sf /sbin/ip /usr/bin/ip
 
-sed -i '/DISTRIB_DESCRIPTION/d' /etc/openwrt_release
-echo "DISTRIB_DESCRIPTION='OpenWrt R22.1.1 r21240-9da58086ac'" >> /etc/openwrt_release
-sed -i 'd' /etc/openwrt_version
-echo "r21240-9da58086ac" >> /etc/openwrt_version
-
 sed -i '/log-facility/d' /etc/dnsmasq.conf
 echo "log-facility=/dev/null" >> /etc/dnsmasq.conf
 
