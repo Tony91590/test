@@ -28,7 +28,7 @@ endef
 
 define Package/default-settings-en
   $(Package/default-settings)
-  TITLE+= (Optimize for CHN users)
+  TITLE+= (Optimize for users)
   DEPENDS:=+default-settings +@LUCI_LANG_en
 endef
 
