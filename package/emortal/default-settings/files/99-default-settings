@@ -3,6 +3,8 @@
 uci set luci.main.lang=auto
 uci commit luci
 
+uci set system.@system[0].timezone=CET-1CEST,M3.5.0,M10.5.0/3
+uci set system.@system[0].zonename=Europe/Paris
 uci set system.led_wan.mode='link'
 uci set system.led_lan.mode='link'
 uci commit system
@@ -16,6 +18,11 @@ rm -f /www/luci-static/resources/view/status/include/80_minidlna.js
 rm -f /www/luci-static/resources/view/status/include/80_upnp.js
 
 ln -sf /sbin/ip /usr/bin/ip
+
+sed -i '/DISTRIB_REVISION/d' /etc/openwrt_release
+echo "DISTRIB_REVISION='R22.1.1'" >> /etc/openwrt_release
+sed -i '/DISTRIB_DESCRIPTION/d' /etc/openwrt_release
+echo "DISTRIB_DESCRIPTION='OpenWrt '" >> /etc/openwrt_release
 
 sed -i '/log-facility/d' /etc/dnsmasq.conf
 echo "log-facility=/dev/null" >> /etc/dnsmasq.conf
