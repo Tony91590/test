@@ -44,4 +44,4 @@ define Package/default-settings/install
 endef
 
 $(eval $(call BuildPackage,default-settings))
-$(eval $(call BuildPackage,default-settings-chn))
+$(eval $(call BuildPackage,default-settings-en))
