@@ -26,7 +26,7 @@ define Package/default-settings
   DEPENDS:=+luci-lib-base
 endef
 
-define Package/default-settings-chn
+define Package/default-settings-en
   $(Package/default-settings)
   TITLE+= (Optimize for CHN users)
   DEPENDS:=+default-settings +@LUCI_LANG_en
