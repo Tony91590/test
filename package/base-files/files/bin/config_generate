@@ -317,7 +317,6 @@ generate_static_system() {
 		add_list system.ntp.server='3.fr.pool.ntp.org'
 	EOF
 
-
 	if json_is_a system object; then
 		json_select system
 			local hostname
