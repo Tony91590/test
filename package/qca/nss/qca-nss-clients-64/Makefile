@@ -22,7 +22,7 @@ define KernelPackage/qca-nss-drv-pppoe-64
   AUTOLOAD:=$(call AutoLoad,51,qca-nss-pppoe)
 endef
 
-define KernelPackage/qca-nss-drv-pppoe/Description
+define KernelPackage/qca-nss-drv-pppoe-64/Description
 Kernel modules for NSS connection manager - Support for PPPoE
 endef
 
@@ -36,7 +36,7 @@ define KernelPackage/qca-nss-drv-bridge-mgr-64
   AUTOLOAD:=$(call AutoLoad,51,qca-nss-bridge-mgr)
 endef
 
-define KernelPackage/qca-nss-drv-bridge-mgr/Description
+define KernelPackage/qca-nss-drv-bridge-mgr-64/Description
 Kernel modules for NSS bridge manager
 endef
 
