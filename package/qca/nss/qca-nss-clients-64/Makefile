@@ -63,7 +63,7 @@ EXTRA_CFLAGS+= \
 	-I$(STAGING_DIR)/usr/include/qca-ssdk/fal \
 	-I$(STAGING_DIR)/usr/include/nat46
 
-ifneq ($(CONFIG_PACKAGE_kmod-qca-nss-drv-pppoe),)
+ifneq ($(CONFIG_PACKAGE_kmod-qca-nss-drv-pppoe-64),)
 NSS_CLIENTS_MAKE_OPTS+=pppoe=y
 endif
 
