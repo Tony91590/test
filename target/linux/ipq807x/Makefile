@@ -9,6 +9,7 @@ CPU_TYPE:=cortex-a53
 SUBTARGETS:=generic
 
 KERNEL_PATCHVER:=5.10
+KERNEL_TESTING_PATCHVER:=5.15
 
 include $(INCLUDE_DIR)/target.mk
 DEFAULT_PACKAGES += \
@@ -19,6 +20,6 @@ DEFAULT_PACKAGES += \
 	kmod-qca-nss-dp kmod-qca-nss-drv-64 \
 	kmod-qca-nss-drv-pppoe-64 kmod-qca-nss-ecm-64 \
 	kmod-qca-nss-drv-bridge-mgr-64 kmod-qca-drv-vlan-mgr-64 \
-	nss-firmware-ipq8074  
+	nss-firmware-ipq8074 ath11k-board-ipq8074
 
 $(eval $(call BuildTarget))
