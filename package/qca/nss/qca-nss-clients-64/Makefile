@@ -1,13 +1,13 @@
- include $(TOPDIR)/rules.mk
+include $(TOPDIR)/rules.mk
 
 PKG_NAME:=qca-nss-clients-64
 PKG_RELEASE:=$(AUTORELEASE)
 
 PKG_SOURCE_URL:=https://source.codeaurora.org/quic/cc-qrdk/oss/lklm/nss-clients
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_DATE:=2021-07-27
-PKG_SOURCE_VERSION:=ec7a57bed8914adcbd5bf95de1f0b630296489c1
-PKG_MIRROR_HASH:=bf911b256cf76348652d1b34f80d96742b8eec93a09570a889d51217d70b6ea2
+PKG_SOURCE_DATE:=2021-04-29
+PKG_SOURCE_VERSION:=b93c72c1b72c591c2ddc2f0b24f0e2b457720118
+PKG_MIRROR_HASH:=fbfba64a364b095ea7c9a24cd7af96b63ab0bc29c179e1628c675aa223c0d063
 
 include $(INCLUDE_DIR)/kernel.mk
 include $(INCLUDE_DIR)/package.mk
@@ -26,34 +26,6 @@ define KernelPackage/qca-nss-drv-pppoe-64/Description
 Kernel modules for NSS connection manager - Support for PPPoE
 endef
 
-define KernelPackage/qca-nss-drv-bridge-mgr-64
-  SECTION:=kernel
-  CATEGORY:=Kernel modules
-  SUBMENU:=Network Devices
-  TITLE:=Kernel driver for NSS bridge manager
-  DEPENDS:=@TARGET_ipq807x +kmod-qca-nss-drv-64 +kmod-qca-nss-drv-vlan-mgr-64
-  FILES:=$(PKG_BUILD_DIR)/bridge/qca-nss-bridge-mgr.ko
-  AUTOLOAD:=$(call AutoLoad,51,qca-nss-bridge-mgr)
-endef
-
-define KernelPackage/qca-nss-drv-bridge-mgr-64/Description
-Kernel modules for NSS bridge manager
-endef
-
-define KernelPackage/qca-nss-drv-vlan-mgr-64
-  SECTION:=kernel
-  CATEGORY:=Kernel modules
-  SUBMENU:=Network Devices
-  TITLE:=Kernel driver for NSS vlan manager
-  DEPENDS:=@TARGET_ipq807x +kmod-qca-nss-drv-64
-  FILES:=$(PKG_BUILD_DIR)/vlan/qca-nss-vlan.ko
-  AUTOLOAD:=$(call AutoLoad,51,qca-nss-vlan)
-endef
-
-define KernelPackage/qca-nss-drv-vlan-mgr-64/Description
-Kernel modules for NSS vlan manager
-endef
-
 EXTRA_CFLAGS+= \
 	-I$(STAGING_DIR)/usr/include/qca-nss-drv \
 	-I$(STAGING_DIR)/usr/include/qca-nss-crypto \
@@ -65,19 +37,6 @@ EXTRA_CFLAGS+= \
 
 ifneq ($(CONFIG_PACKAGE_kmod-qca-nss-drv-pppoe-64),)
 NSS_CLIENTS_MAKE_OPTS+=pppoe=y
-endif
-
-ifneq ($(CONFIG_PACKAGE_kmod-qca-nss-drv-bridge-mgr-64),)
-NSS_CLIENTS_MAKE_OPTS+=bridge-mgr=y
-#enable OVS bridge if ovsmgr is enabled
-ifneq ($(CONFIG_PACKAGE_kmod-qca-ovsmgr),)
-NSS_CLIENTS_MAKE_OPTS+= NSS_BRIDGE_MGR_OVS_ENABLE=y
-EXTRA_CFLAGS+= -I$(STAGING_DIR)/usr/include/qca-ovsmgr
-endif
-endif
-
-ifneq ($(CONFIG_PACKAGE_kmod-qca-nss-drv-vlan-mgr-64),)
-NSS_CLIENTS_MAKE_OPTS+=vlan-mgr=y
 endif
 
 ifeq ($(CONFIG_TARGET_BOARD), "ipq807x")
@@ -98,5 +57,3 @@ define Build/Compile
 endef
 
 $(eval $(call KernelPackage,qca-nss-drv-pppoe-64))
-$(eval $(call KernelPackage,qca-nss-drv-bridge-mgr-64))
-$(eval $(call KernelPackage,qca-nss-drv-vlan-mgr-64))
