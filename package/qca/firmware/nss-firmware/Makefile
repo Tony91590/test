@@ -53,7 +53,7 @@ define Package/nss-firmware-ipq6018/install
 	$(INSTALL_DIR) $(1)/lib/firmware/
 	$(INSTALL_DATA) \
 		$(PKG_BUILD_DIR)/IPQ6018/retail_router0.bin \
-		$(1)/lib/firmware/qca-nss0-retail.bin
+		$(1)/lib/firmware/qca-nss0.bin
 endef
 
 define Package/nss-firmware-ipq8074/install
