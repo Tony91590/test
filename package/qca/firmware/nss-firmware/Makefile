@@ -52,7 +52,7 @@ define Package/nss-firmware-ipq6018/install
 	$(INSTALL_DIR) $(1)/lib/firmware/
 	$(INSTALL_DATA) \
 		$(PKG_BUILD_DIR)/BIN-NSS.CP.11.3-9-R/retail_router0.bin \
-		$(1)/lib/firmware/qca-nss0-retail.bin
+		$(1)/lib/firmware/qca-nss0.bin
 endef
 
 define Package/nss-firmware-ipq8074/install
@@ -60,10 +60,10 @@ define Package/nss-firmware-ipq8074/install
 	$(INSTALL_DIR) $(1)/lib/firmware/
 	$(INSTALL_DATA) \
 		$(PKG_BUILD_DIR)/BIN-NSS.HK.11.3-9-R/retail_router0.bin \
-		$(1)/lib/firmware/qca-nss0-retail.bin
+		$(1)/lib/firmware/qca-nss0.bin
 	$(INSTALL_DATA) \
 		$(PKG_BUILD_DIR)/BIN-NSS.HK.11.3-9-R/retail_router1.bin \
-		$(1)/lib/firmware/qca-nss1-retail.bin
+		$(1)/lib/firmware/qca-nss1.bin
 endef
 
 $(eval $(call BuildPackage,nss-firmware-ipq6018))
