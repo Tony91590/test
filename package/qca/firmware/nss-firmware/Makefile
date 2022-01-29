@@ -62,10 +62,10 @@ define Package/nss-firmware-ipq8074/install
 	$(INSTALL_DIR) $(1)/lib/firmware/
 	$(INSTALL_DATA) \
 		$(PKG_BUILD_DIR)/IPQ8074/retail_router0.bin \
-		$(1)/lib/firmware/qca-nss0-retail.bin
+		$(1)/lib/firmware/qca-nss0.bin
 	$(INSTALL_DATA) \
 		$(PKG_BUILD_DIR)/IPQ8074/retail_router1.bin \
-		$(1)/lib/firmware/qca-nss1-retail.bin
+		$(1)/lib/firmware/qca-nss1.bin
 endef
 
 $(eval $(call BuildPackage,nss-firmware-ipq6018))
