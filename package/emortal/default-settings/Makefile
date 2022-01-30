@@ -29,7 +29,7 @@ endef
 define Package/default-settings-lang
   $(Package/default-settings)
   TITLE+= (Optimize for users)
-  DEPENDS:=+default-settings +@LUCI_LANG_en
+  DEPENDS:=+default-settings +@LUCI_LANG_fr
 endef
 
 define Build/Compile
